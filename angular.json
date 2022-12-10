@@ -31,9 +31,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules/@syncfusion",
+                "node_modules/bootstrap/dist/css/bootstrap.min.scss",
+                "node_modules/font-awesome/scss/font-awesome.scss"
+              ]
+            },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,13 +112,25 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/scss/font-awesome.scss"
             ],
-            "scripts": []
+              "stylePreprocessorOptions": {
+                "includePaths": [
+                  "node_modules/@syncfusion",
+                  "node_modules/bootstrap/dist/css/bootstrap.min.scss",
+                  "node_modules/font-awesome/scss/font-awesome.scss"
+                ]
+              },
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+            ]
           }
         }
       }
     }
-  },
-  "defaultProject": "weather"
+  }
 }
