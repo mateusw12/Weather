@@ -7,7 +7,7 @@
       "@module/*": ["./src/app/module/*"],
       "@models/*": ["@module/models/*"],
       "@pages/*": ["@module/pages/*"],
-      "@repository/*": ["@module/repository/*"],
+      "@repository/*": ["@module/repositories/*"],
       "@shared/*": ["@module/shared/*"],
       "@utils/*": ["@module/utils/*"],
       "@routes/*": ["@module/routes/*"]

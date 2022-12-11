@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import {
   AuthenticationService,
   ErrorHandler,
-  ThemeService,
 } from '@module/utils/services';
 
 @Component({
@@ -14,7 +13,6 @@ import {
 export class MenuComponent implements OnInit, OnDestroy {
   
   constructor(
-    private themeService: ThemeService,
     private router: Router,
     private authenticationService: AuthenticationService,
     private errorHandler: ErrorHandler
@@ -30,4 +28,5 @@ export class MenuComponent implements OnInit, OnDestroy {
   private handleError(error: unknown): void {
     this.errorHandler.present(error);
   }
+
 }

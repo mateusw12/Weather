@@ -1,8 +1,15 @@
 import { Routes } from '@angular/router';
 import { MenuComponent } from '@module/pages/menu';
+import { AuthGuardsService } from '@module/utils/http';
+import * as pages from './pages';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'menu' },
+  {
+    path: 'login',
+    data: { pageTitle: 'Login' },
+    loadChildren: pages.login,
+  },
   {
     path: 'menu',
     component: MenuComponent,
