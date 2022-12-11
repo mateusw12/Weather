@@ -3,6 +3,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@module/*": ["./src/app/module/*"],
+      "@models/*": ["@module/models/*"],
+      "@pages/*": ["@module/pages/*"],
+      "@repository/*": ["@module/repository/*"],
+      "@shared/*": ["@module/shared/*"],
+      "@utils/*": ["@module/utils/*"],
+      "@routes/*": ["@module/routes/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -18,10 +27,7 @@
     "module": "es2020",
     "resolveJsonModule": true,
     "suppressImplicitAnyIndexErrors": true,
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

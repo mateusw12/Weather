@@ -9,12 +9,11 @@ import { BreadCrumb } from './breadcrumb-interface';
   selector: 'app-bread-crumb',
 })
 export class BreadCrumbComponent implements OnInit {
-
   get breadcrumbs(): BreadCrumb[] {
     return this._breadcrumbs;
   }
 
-  private _breadcrumbs: BreadCrumb[];
+  private _breadcrumbs: BreadCrumb[] = [];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this._breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
