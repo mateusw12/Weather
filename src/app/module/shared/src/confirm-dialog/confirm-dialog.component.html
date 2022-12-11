@@ -1,0 +1,22 @@
+<div class="position-confirm-modal">
+  <div class="modal-content confirm-modal-size">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-basic-title"> {{title}}</h3>
+      <button type="button" class="close" aria-label="Close" (click)="onClose()">
+        <span aria-hidden="true">X</span>
+      </button>
+    </div>
+    <div class="modal-footer">
+      <div *ngIf="!buttonOptions.isConfirmButton">
+        <button type="button" class="btn btn-{{buttonOptions.confirmCssClass}}" (click)="onConfirmClick()">
+          {{buttonOptions.confirmContent}}
+        </button>
+      </div>
+      <div *ngIf="!buttonOptions.isCloseButton">
+        <button type="button" class="btn btn-{{buttonOptions.closeCssClass}}" data-dismiss="modal" (click)="onClose()">
+          {{ buttonOptions.closeContent}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
