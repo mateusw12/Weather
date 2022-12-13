@@ -1,0 +1,53 @@
+.container-body {
+  background-image: url(https://www.teahub.io/photos/full/92-925211_spectrum-wallpaper-high-definition-spectrum-hd.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.login-box {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+
+.user_card {
+  min-height: 330px;
+  width: 350px;
+  background-color: azure;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 3);
+  border-radius: 25px;
+}
+
+.brand_logo_container {
+  position: absolute;
+  height: 170px;
+  width: 170px;
+  top: -75px;
+  border-radius: 50%;
+  background: #cbcecf;
+  padding: 10px;
+  text-align: center;
+}
+
+.brand_logo {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.align-footer-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-form {
+  margin-top: 100px;
+}
+
+.align-title {
+  display: flex;
+  justify-content: center;
+}

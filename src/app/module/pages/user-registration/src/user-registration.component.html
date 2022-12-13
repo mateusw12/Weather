@@ -1,0 +1,89 @@
+<div class="container-body">
+  <div class="login-box">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <div class="brand_logo_container">
+          <img
+            src="/assets/pages/menu/logo.jpg"
+            class="brand_logo"
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <div class="align-form">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="align-title">Cadastro de Usuário</h3>
+          </div>
+        </div>
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <ejs-textbox
+                  formControlName="name"
+                  placeholder="Nome"
+                  formErrorHandler
+                >
+                </ejs-textbox>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <ejs-textbox
+                  formControlName="email"
+                  placeholder="E-mail"
+                  formErrorHandler
+                >
+                </ejs-textbox>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <ejs-textbox
+                  formControlName="userName"
+                  placeholder="Nome Usuário"
+                  formErrorHandler
+                >
+                </ejs-textbox>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <ejs-textbox
+                  formControlName="password"
+                  placeholder="Senha"
+                  formErrorHandler
+                  type="password"
+                >
+                </ejs-textbox>
+                <app-passwordstrengthbar
+                  [password]="form.controls.password.value"
+                ></app-passwordstrengthbar>
+              </div>
+            </div>
+          </div>
+
+          <div class="align-footer-button">
+            <div>
+              <button
+                ejs-button
+                buttonReturn
+                (click)="onReturnClick()"
+              ></button>
+            </div>
+            <div>
+              <button ejs-button buttonSave (click)="onSaveClick()"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

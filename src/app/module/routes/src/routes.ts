@@ -11,6 +11,11 @@ export const routes: Routes = [
     loadChildren: pages.login,
   },
   {
+    path: 'user-registration',
+    data: { pageTitle: 'Cadastro de Usuário' },
+    loadChildren: pages.userRegistration,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },

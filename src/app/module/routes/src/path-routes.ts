@@ -6,3 +6,10 @@ export const LOGIN_PATH: AppRoutes = {
   pageTitle: 'Login',
   fatherTitle: '',
 };
+
+export const USER_REGISTRATION_PATH: AppRoutes = {
+  path: '/user-registration',
+  onlyPath: 'user-registration',
+  pageTitle: 'Cadastro Usuário',
+  fatherTitle: '',
+};

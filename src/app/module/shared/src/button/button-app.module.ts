@@ -10,6 +10,7 @@ import { ButtonFinishDirective } from './button-finish.directive';
 import { ButtonLoginDirective } from './button-login.directive';
 import { ButtonOkDirective } from './button-ok.directive';
 import { ButtonResetDirective } from './button-reset.directive';
+import { ButtonReturnDirective } from './button-return.directive';
 import { ButtonSaveDirective } from './button-save.directive';
 import { ButtonSearchDirective } from './button-search.directive';
 import { ButtonUploadDirective } from './button-upload.directive';
@@ -34,6 +35,7 @@ import { ThrottleClickDirective } from './throttle-click.directive';
     ButtonLoginDirective,
     ButtonFinishDirective,
     ButtonCreateUserDirective,
+    ButtonReturnDirective,
   ],
   exports: [
     ButtonAddDirective,
@@ -51,6 +53,7 @@ import { ThrottleClickDirective } from './throttle-click.directive';
     ButtonLoginDirective,
     ButtonFinishDirective,
     ButtonCreateUserDirective,
+    ButtonReturnDirective,
   ],
 })
 export class ButtonAppModule {}
