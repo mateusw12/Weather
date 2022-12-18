@@ -1,32 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  AuthenticationService,
-  ErrorHandler,
-} from '@module/utils/services';
+import { AuthenticationService } from '@module/utils/services';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit, OnDestroy {
-  
+export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private errorHandler: ErrorHandler
+    private authenticationService: AuthenticationService
   ) {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit(): void {}
+
+  onLogout(): void {
+    this.authenticationService.clearUserToken();
+    this.router.navigate([`/login`]);
   }
 
-  private handleError(error: unknown): void {
-    this.errorHandler.present(error);
+  onInformationClick(): void {
+    this.router.navigate([`/informations`]);
   }
-
 }

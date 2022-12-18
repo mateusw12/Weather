@@ -1,13 +1,6 @@
-<div class="site-wrapper">
   <div class="pt-table">
     <div
-      class="pt-tablecell page-home relative"
-      style="
-        background-image: url(https://i.pinimg.com/originals/f5/3d/3f/f53d3f8a2b09f6431df49140c39ba639.jpg);
-        background-position: center;
-        background-size: cover;
-      "
-    >
+      class="pt-tablecell page-home relative">
       <div class="container">
         <div class="row">
           <div
@@ -189,7 +182,7 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a class="hex-content">
+                <a class="hex-content" (click)="onInformationClick()">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="e-icons e-circle-info"></i>
@@ -221,7 +214,7 @@
                   <div></div>
                   <div></div>
                 </div>
-                <a class="hex-content">
+                <a class="hex-content" (click)="onLogout()">
                   <span class="hex-content-inner">
                     <span class="icon">
                       <i class="bi bi-box-arrow-right"></i>
@@ -248,4 +241,3 @@
       </div>
     </div>
   </div>
-</div>
