@@ -1,0 +1,21 @@
+.align-container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: #c8e2e5;
+  border-radius: 10px;
+  padding: 15px;
+  height: calc(100vh - 820px);
+}
+
+.custom-text {
+  color: #010101;
+  font-family: sans-serif;
+}
+
+.align-footer-items {
+  display: flex;
+  justify-content: flex-end;
+}

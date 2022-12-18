@@ -16,11 +16,15 @@ export const routes: Routes = [
     loadChildren: pages.userRegistration,
   },
   {
+    path: 'informations',
+    data: { pageTitle: 'Sobre' },
+    loadChildren: pages.information,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },
     // canActivate: [AuthGuardsService],
     // canActivateChild: [AuthGuardsService],
-    children: [],
   },
 ];

@@ -13,3 +13,10 @@ export const USER_REGISTRATION_PATH: AppRoutes = {
   pageTitle: 'Cadastro Usuário',
   fatherTitle: '',
 };
+
+export const INFORMATIONS_PATH: AppRoutes = {
+  path: '/menu/informations',
+  onlyPath: 'informations',
+  pageTitle: 'Sobre',
+  fatherTitle: '',
+};
