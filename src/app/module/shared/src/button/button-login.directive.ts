@@ -7,5 +7,6 @@ export class ButtonLoginDirective extends ButtonBase {
     super(injector);
     this.cssClass = 'e-success';
     this.content = 'Login';
+    this.iconCss = 'fa fa-arrow-right';
   }
 }
