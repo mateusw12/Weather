@@ -1,0 +1,33 @@
+<div class="container align-container">
+  <div class="card">
+    <div class="card-content-tab">
+      <h2 class="custom-text">Ultimas Notícias Climáticas:</h2>
+
+      <div *ngFor="let item of news.articles">
+        <div class="container-news">
+          <div class="container-news-content">
+            <h4>
+              <a href="" (click)="onNavigateNews(item.url)">
+                <b>{{ item.title }}</b>
+              </a>
+            </h4>
+            <h5>{{ item.description }}</h5>
+            <div
+              style="display: flex; justify-content: flex-end; padding: 10px"
+            >
+              <h6>
+                {{ formatDate(item.publishedAt) }} - {{ item.source.name }}
+              </h6>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="align-footer-items">
+        <div>
+          <button ejs-button buttonReturn (click)="onReturnClick()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -21,3 +21,8 @@ export function setting() {
   const promise = import('@module/pages/settings').then((m) => m.SettingModule);
   return promise;
 }
+
+export function news() {
+  const promise = import('@module/pages/news').then((m) => m.NewsModule);
+  return promise;
+}

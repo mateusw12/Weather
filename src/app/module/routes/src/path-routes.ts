@@ -27,3 +27,10 @@ export const SETTING_PATH: AppRoutes = {
   pageTitle: 'Configuração',
   fatherTitle: '',
 };
+
+export const NEWS_PATH: AppRoutes = {
+  path: '/news',
+  onlyPath: 'news',
+  pageTitle: 'Notícias',
+  fatherTitle: '',
+};
