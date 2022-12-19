@@ -23,4 +23,8 @@ export class MenuComponent implements OnInit {
   onInformationClick(): void {
     this.router.navigate([`/informations`]);
   }
+
+  onSettingClick(): void {
+    this.router.navigate([`/settings`]);
+  }
 }

@@ -4,7 +4,9 @@ export function login() {
 }
 
 export function userRegistration() {
-  const promise = import('@module/pages/user-registration').then((m) => m.UserRegistrationModule);
+  const promise = import('@module/pages/user-registration').then(
+    (m) => m.UserRegistrationModule
+  );
   return promise;
 }
 
@@ -12,5 +14,10 @@ export function information() {
   const promise = import('@module/pages/information').then(
     (m) => m.InformationModule
   );
+  return promise;
+}
+
+export function setting() {
+  const promise = import('@module/pages/settings').then((m) => m.SettingModule);
   return promise;
 }

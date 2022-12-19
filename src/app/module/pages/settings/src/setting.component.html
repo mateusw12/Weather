@@ -1,0 +1,36 @@
+<div class="container align-container">
+  <div class="card">
+    <div class="card-content-tab">
+      <h2 class="custom-text">Configurações:</h2>
+      <ejs-tab id="tab" (selected)="activatedTab($event)">
+        <e-tabitems>
+          <e-tabitem>
+            <ng-template #headerText>
+              <div>{{ tabHeaders.myAccount.heading }}</div>
+            </ng-template>
+            <ng-template #content>
+              <div class="align-content">
+                <app-my-account></app-my-account>
+              </div>
+            </ng-template>
+          </e-tabitem>
+          <e-tabitem>
+            <ng-template #headerText>
+              <div>{{ tabHeaders.notification.heading }}</div>
+            </ng-template>
+            <ng-template #content>
+              <div class="align-content">
+                <app-notification></app-notification>
+              </div>
+            </ng-template>
+          </e-tabitem>
+        </e-tabitems>
+      </ejs-tab>
+    </div>
+    <div class="align-footer-items">
+      <div>
+        <button ejs-button buttonReturn (click)="onReturnClick()"></button>
+      </div>
+    </div>
+  </div>
+</div>

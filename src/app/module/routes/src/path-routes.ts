@@ -1,4 +1,4 @@
-import { AppRoutes } from "./app-route-interface";
+import { AppRoutes } from './app-route-interface';
 
 export const LOGIN_PATH: AppRoutes = {
   path: '/login',
@@ -15,8 +15,15 @@ export const USER_REGISTRATION_PATH: AppRoutes = {
 };
 
 export const INFORMATIONS_PATH: AppRoutes = {
-  path: '/menu/informations',
+  path: '/informations',
   onlyPath: 'informations',
   pageTitle: 'Sobre',
+  fatherTitle: '',
+};
+
+export const SETTING_PATH: AppRoutes = {
+  path: '/settings',
+  onlyPath: 'settings',
+  pageTitle: 'Configuração',
   fatherTitle: '',
 };

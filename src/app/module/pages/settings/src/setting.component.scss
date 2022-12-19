@@ -1,0 +1,40 @@
+:host::ng-deep {
+  .align-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    background-color: #c8e2e5;
+    border-radius: 10px;
+    min-width: calc(100vw - 690px);
+    min-height: calc(100vh - 620px);
+    padding: 15px;
+  }
+
+  .align-footer-items {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .align-content {
+    padding-top: 20px;
+  }
+
+  .card-content-tab {
+    height: calc(100vh - 500px);
+  }
+
+  .custom-text {
+    color: #010101;
+    font-family: sans-serif;
+  }
+
+  .align-check-box {
+    margin-top: 10px;
+  }
+
+  .align-button {
+    margin-top: 10px;
+  }
+}

@@ -21,6 +21,11 @@ export const routes: Routes = [
     loadChildren: pages.information,
   },
   {
+    path: 'settings',
+    data: { pageTitle: 'Configuração' },
+    loadChildren: pages.setting,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },
