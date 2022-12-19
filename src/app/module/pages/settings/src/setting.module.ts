@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   ButtonAppModule,
   NumericTextBoxModule,
+  PasswordStrengthBarModule,
   TextBoxModule,
 } from '@module/shared';
 import { ReactiveFormsModule } from '@module/utils/forms';
@@ -29,6 +30,7 @@ import { SettingService } from './setting.service';
     ButtonAppModule,
     ReactiveFormsModule,
     TabModule,
+    PasswordStrengthBarModule,
   ],
   providers: [SettingService],
 })

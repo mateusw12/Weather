@@ -27,6 +27,7 @@ export class SettingComponent implements OnInit {
     
     switch (selectedIndex) {
       case this.tabHeaders.myAccount.index:
+        this.settingService.myAccountLoad();
         break;
       case this.tabHeaders.notification.index:
         this.settingService.notificationLoad();

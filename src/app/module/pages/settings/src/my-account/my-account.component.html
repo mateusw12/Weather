@@ -1,0 +1,56 @@
+<div id="content">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <ejs-textbox
+            formControlName="name"
+            placeholder="Nome"
+            formErrorHandler
+          >
+          </ejs-textbox>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <ejs-textbox
+            formControlName="email"
+            placeholder="E-mail"
+            formErrorHandler
+          >
+          </ejs-textbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <ejs-textbox
+            formControlName="userName"
+            placeholder="Nome Usuário"
+            formErrorHandler
+          >
+          </ejs-textbox>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <ejs-textbox
+            formControlName="password"
+            placeholder="Senha"
+            formErrorHandler
+            type="password"
+          >
+          </ejs-textbox>
+          <app-passwordstrengthbar
+            [password]="form.controls.password.value"
+          ></app-passwordstrengthbar>
+        </div>
+      </div>
+      <div class="col-md-2 align-button-save-my-account">
+         <button ejs-button buttonSave (click)="onSaveClick()"></button>
+      </div>
+    </div>
+  </form>
+</div>
