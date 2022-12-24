@@ -29,6 +29,10 @@ export class NewsComponent implements OnInit, OnDestroy {
     this.router.navigate([`/menu`]);
   }
 
+  onNewsCloseClick(): void {
+    this.router.navigate([`/menu`]);
+  }
+
   onNavigateNews(newsUrl: string): void {
     window.open(newsUrl, '_blank');
   }

@@ -1,8 +1,17 @@
 <div class="container align-container">
   <div class="card">
     <div class="card-content-tab">
-      <h2 class="custom-text">Ultimas Notícias Climáticas:</h2>
-
+      <div class="align-header-items">
+        <div>
+          <h2 class="custom-text">Ultimas Notícias Climáticas:</h2>
+        </div>
+        <div>
+          <button type="button" class="close align-button-close" aria-label="Close" (click)="onNewsCloseClick()">
+          <span aria-hidden="true">X</span>
+        </button>
+        </div>
+      </div>
+      <hr />
       <div *ngFor="let item of news.articles">
         <div class="container-news">
           <div class="container-news-content">

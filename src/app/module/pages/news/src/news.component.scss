@@ -19,6 +19,15 @@
   padding-bottom: 5px;
 }
 
+.align-header-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-button-close {
+  margin-top: 10px;
+}
+
 .card-content-tab {
   height: calc(100vh - 250px);
 }
