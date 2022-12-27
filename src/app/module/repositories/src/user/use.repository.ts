@@ -4,7 +4,7 @@ import { User } from '@module/models';
 import { AuthenticationService } from '@module/utils/services';
 import { Observable } from 'rxjs';
 
-const API_URL = '/api/cadastro/usuario';
+const API_URL = '/api/usuario';
 
 @Injectable({
   providedIn: 'root',

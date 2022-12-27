@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '@module/models';
+import { User, UserRole } from '@module/models';
 import { UserRepository } from '@module/repositories';
 import { untilDestroyed } from '@module/utils/common';
 import { markAllAsTouched } from '@module/utils/forms';
@@ -13,6 +13,7 @@ interface FormModel {
   name: FormControl<string | null>;
   email: FormControl<string | null>;
   id: FormControl<number | null>;
+  role: FormControl<UserRole | null>;
 }
 
 @Component({
@@ -81,6 +82,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       name: model.name,
       password: '',
       userName: model.userName,
+      role: model.role,
     });
   }
 
@@ -92,6 +94,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     model.name = formValue.name as string;
     model.password = formValue.password as string;
     model.userName = formValue.userName as string;
+    model.role = formValue.role as UserRole;
     return model;
   }
 
@@ -118,6 +121,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         Validators.email,
         Validators.maxLength(200),
       ]),
+      role: new FormControl<UserRole | null>(null),
     });
   }
 }

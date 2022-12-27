@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '@module/models';
+import { User, UserRole } from '@module/models';
 import { UserRepository } from '@module/repositories';
 import { untilDestroyed } from '@module/utils/common';
 import { markAllAsTouched } from '@module/utils/forms';
@@ -42,7 +42,6 @@ export class UserRegistrationComponent implements OnInit, OnDestroy {
       return;
     }
     const model = this.getModel();
-
     this.userRepository
       .add(model)
       .pipe(untilDestroyed(this))
@@ -58,10 +57,11 @@ export class UserRegistrationComponent implements OnInit, OnDestroy {
     const model = new User();
     const formValue = this.form.getRawValue();
     model.email = formValue.email as string;
-    model.id = formValue.id as number;
+    model.id = 0;
     model.name = formValue.name as string;
     model.password = formValue.password as string;
     model.userName = formValue.userName as string;
+    model.role = UserRole.Administrator;
     return model;
   }
 
@@ -71,7 +71,7 @@ export class UserRegistrationComponent implements OnInit, OnDestroy {
 
   private createForm(): FormGroup<FormModel> {
     return new FormGroup<FormModel>({
-      id: new FormControl<number | null>(null, [Validators.required]),
+      id: new FormControl<number | null>(null),
       userName: new FormControl<string | null>(null, [
         Validators.required,
         Validators.maxLength(100),

@@ -31,10 +31,13 @@ export const routes: Routes = [
     loadChildren: pages.news,
   },
   {
+    path: 'weather-forecast-registration',
+    data: { pageTitle: 'Previsão de Tempo' },
+    loadChildren: pages.weatherForecastRegistration,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },
-    // canActivate: [AuthGuardsService],
-    // canActivateChild: [AuthGuardsService],
   },
 ];

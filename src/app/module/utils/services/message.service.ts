@@ -35,7 +35,6 @@ export class MessageService implements OnDestroy {
     bsModalRef.content.title = 'Você confirma a exclusão?';
     const response = await (<ConfirmDialogComponent>bsModalRef.content)
       .confirmResult1;
-    console.log('response');
     return response;
   }
 

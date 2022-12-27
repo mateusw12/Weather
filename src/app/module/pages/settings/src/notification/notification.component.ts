@@ -55,7 +55,6 @@ export class NotificationComponent implements OnInit, OnDestroy {
           this.toastService.showSuccess();
           this.reset();
           this.loadData();
-          this.toastService.showSuccess();
         },
         async (error) => this.handleError(error)
       );
@@ -140,7 +139,8 @@ export class NotificationComponent implements OnInit, OnDestroy {
       ]),
       email: new FormControl<string | null>(null, [
         Validators.required,
-        Validators.maxLength(200),
+        Validators.email,
+        Validators.maxLength(300),
       ]),
       sendEmail: new FormControl<boolean | null>(null, [Validators.required]),
     });

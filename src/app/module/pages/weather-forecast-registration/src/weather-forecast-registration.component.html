@@ -1,0 +1,126 @@
+<div class="container align-container">
+  <div class="card">
+    <div class="card-content-tab">
+      <form [formGroup]="form">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Consultar Previsão de Tempo:</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="form-group">
+              <ejs-textbox
+                placeholder="Digite o nome da cidade"
+                formErrorHandler
+                formControlName="city"
+              >
+              </ejs-textbox>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="align-button-search">
+              <div>
+                <button
+                  ejs-button
+                  iconCss="e-icons e-search"
+                  cssClass="e-primary"
+                  (click)="onSearchClick()"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div *ngIf="loaded">
+        <hr />
+        <div style="text-align: center">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Temperatura Atual:</h3>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-md-12">
+              <div class="weather-detail">
+                <div class="align-content">
+                  <div>
+                    <h4>
+                      <i class="bi bi-geo-alt-fill"></i>
+                      <span>{{ weatherCity }}</span>
+                      <img [src]="countryFlag" />
+                    </h4>
+                  </div>
+                  <div>
+                    <p>
+                      Temp: <span>{{ weatherTemperature }}</span
+                      >&deg;C
+                      <img [src]="weatherIcon" alt="Condições atuais" />
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>
+                      Temp. Min: <span>{{ weatherTemperatureMin }}</span
+                      >&deg;C
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>
+                      Temp. Max: <span>{{ weatherTemperatureMax }}</span
+                      >&deg;C
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>
+                      Umidade:
+                      {{ weatherHumidity }}
+                      <i class="bi bi-droplet-fill"></i>
+                      <span></span>
+                    </p>
+                  </div>
+
+                  <div>
+                    <p>
+                      Vel.Vento: {{ weatherWind }} Km/h
+                      <i class="fa-solid fa-wind"></i>
+                      <span></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="align-footer-items">
+          <div *ngIf="loaded">
+            <button
+              ejs-button
+              class="align-historic-button"
+              buttonSave
+              (click)="onSaveClick()"
+            ></button>
+            <button
+              ejs-button
+              class="align-historic-button"
+              buttonHistoric
+              (click)="onHistoricClick()"
+            ></button>
+          </div>
+          <div>
+            <button ejs-button buttonReturn (click)="onReturnClick()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,7 +36,6 @@ export class ConfirmDialogComponent implements OnInit {
   ngOnInit() {}
 
   private confirmAndClose(confirm: boolean): void {
-    console.log('confirmAndClose', confirm);
     this.confirmResult1 = Promise.resolve(confirm);
     this.bsModalRef.hide();
   }

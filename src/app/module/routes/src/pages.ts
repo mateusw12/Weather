@@ -26,3 +26,8 @@ export function news() {
   const promise = import('@module/pages/news').then((m) => m.NewsModule);
   return promise;
 }
+
+export function weatherForecastRegistration() {
+  const promise = import('@module/pages/weather-forecast-registration').then((m) => m.WeatherForecastRegistrationModule);
+  return promise;
+}

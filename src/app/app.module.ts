@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from '@module/pages/menu';
 import { BreadCrumbComponent } from '@module/shared';
+import { AuthGuardsService } from '@module/utils/http';
 import { HttpErrorHandlerInterceptor } from '@module/utils/http/http-error-handler.interceptor';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { AppRoutingModule } from './app-routing.module';

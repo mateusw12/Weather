@@ -6,8 +6,9 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { AuthenticationService } from '../services';
+
+const API_URL = 'http://localhost:8080/api/';
 
 @Injectable({ providedIn: 'root' })
 export class HttpErrorHandlerInterceptor implements HttpInterceptor {
@@ -19,7 +20,7 @@ export class HttpErrorHandlerInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = this.authenticationService.getToken();
     const requestUrl: string[] = request.url.split('/');
-    const apiURL: string[] = environment.api_url.split('/');
+    const apiURL: string[] = API_URL.split('/');
     
     if (token && requestUrl[2] === apiURL[2]) {
       const newRequest = request.clone({

@@ -5,3 +5,6 @@ export * from './setting/notification';
 export * from './user/user';
 export * from './user/user-role';
 export * from './search-image/search-image';
+export * from './weather-forecast/current-weather-forecast';
+export * from './weather-forecast/weather-forecast';
+export * from './weather-forecast/my-weather-forecast';
