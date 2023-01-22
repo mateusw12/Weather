@@ -1,17 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Notification } from '@module/models';
-import { NotificationRepository } from '@module/repositories';
+import { Notification, User } from '@module/models';
+import { NotificationRepository, UserRepository } from '@module/repositories';
 import { untilDestroyed } from '@module/utils/common';
 import { markAllAsTouched } from '@module/utils/forms';
 import { ErrorHandler, ToastService } from '@module/utils/services';
+import { forkJoin } from 'rxjs';
 import { SettingService } from '../setting.service';
 
 interface FormModel {
   id: FormControl<number | null>;
   sendEmail: FormControl<boolean | null>;
+  sendSms: FormControl<boolean | null>;
   email: FormControl<string | null>;
+  phone: FormControl<string | null>;
   breakingDay: FormControl<number | null>;
+  lastSendDate: FormControl<Date | null>;
 }
 
 @Component({
@@ -25,11 +29,14 @@ export class NotificationComponent implements OnInit, OnDestroy {
     return Number(this.form.controls.id.value) <= 0;
   }
 
+  private user: User = new User();
+
   constructor(
     private errorHandler: ErrorHandler,
     private toastService: ToastService,
     private notificationRepository: NotificationRepository,
-    private settingService: SettingService
+    private settingService: SettingService,
+    private userRepository: UserRepository
   ) {}
 
   ngOnInit(): void {
@@ -91,11 +98,11 @@ export class NotificationComponent implements OnInit, OnDestroy {
   }
 
   private loadData(): void {
-    this.notificationRepository
-      .find()
+    forkJoin([this.notificationRepository.find(), this.userRepository.findMe()])
       .pipe(untilDestroyed(this))
       .subscribe(
-        (notification) => {
+        ([notification, user]) => {
+          this.user = user;
           this.populateForm(notification);
         },
         (error) => this.handleError(error)
@@ -108,6 +115,9 @@ export class NotificationComponent implements OnInit, OnDestroy {
       breakingDay: model.breakingDay,
       email: model.email,
       sendEmail: model.sendEmail,
+      sendSms: model.sendSms,
+      phone: model.phone,
+      lastSendDate: model.lastSentDate,
     });
   }
 
@@ -122,6 +132,12 @@ export class NotificationComponent implements OnInit, OnDestroy {
     model.breakingDay = formValue.breakingDay as number;
     model.email = formValue.email as string;
     model.sendEmail = formValue.sendEmail as boolean;
+    model.sendSms = formValue.sendSms as boolean;
+    model.phone = formValue.phone as string;
+    model.userName = this.user.userName;
+    model.lastSentDate = formValue.lastSendDate
+      ? formValue.lastSendDate
+      : new Date();
     return model;
   }
 
@@ -138,11 +154,13 @@ export class NotificationComponent implements OnInit, OnDestroy {
         Validators.max(999),
       ]),
       email: new FormControl<string | null>(null, [
-        Validators.required,
         Validators.email,
         Validators.maxLength(300),
       ]),
-      sendEmail: new FormControl<boolean | null>(null, [Validators.required]),
+      sendEmail: new FormControl<boolean | null>(null),
+      sendSms: new FormControl<boolean | null>(null),
+      phone: new FormControl<string | null>(null, Validators.maxLength(50)),
+      lastSendDate: new FormControl<Date | null>(null),
     });
   }
 }
