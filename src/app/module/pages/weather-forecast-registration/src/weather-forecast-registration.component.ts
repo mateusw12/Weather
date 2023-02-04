@@ -12,7 +12,11 @@ import {
 } from '@module/repositories';
 import { untilDestroyed, untilDestroyedAsync } from '@module/utils/common';
 import { markAllAsTouched } from '@module/utils/forms';
-import { ErrorHandler, ToastService } from '@module/utils/services';
+import {
+  ErrorHandler,
+  MessageService,
+  ToastService,
+} from '@module/utils/services';
 import { debounceTime } from 'rxjs/operators';
 import { WeatherForecast5DayComponent } from './weather-forecast-5-day-modal/weather-forecast-5-day-modal.component';
 
@@ -120,9 +124,8 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
     }
   }
 
-  onSaveClick(): void {
+  async onSaveClick(): Promise<void> {
     const model = this.getModel();
-
     this.weatherForecastRepository
       .add(model)
       .pipe(untilDestroyed(this))
