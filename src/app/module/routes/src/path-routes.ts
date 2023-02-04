@@ -34,3 +34,10 @@ export const NEWS_PATH: AppRoutes = {
   pageTitle: 'Notícias',
   fatherTitle: '',
 };
+
+export const HELPME_PATH: AppRoutes = {
+  path: '/help-me',
+  onlyPath: 'help-me',
+  pageTitle: 'Posso Ajudar',
+  fatherTitle: '',
+};

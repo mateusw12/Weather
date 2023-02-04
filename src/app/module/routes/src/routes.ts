@@ -36,6 +36,11 @@ export const routes: Routes = [
     loadChildren: pages.weatherForecastRegistration,
   },
   {
+    path: 'help-me',
+    data: { pageTitle: 'Posso Ajudar' },
+    loadChildren: pages.helpMe,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },

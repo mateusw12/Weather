@@ -28,6 +28,13 @@ export function news() {
 }
 
 export function weatherForecastRegistration() {
-  const promise = import('@module/pages/weather-forecast-registration').then((m) => m.WeatherForecastRegistrationModule);
+  const promise = import('@module/pages/weather-forecast-registration').then(
+    (m) => m.WeatherForecastRegistrationModule
+  );
+  return promise;
+}
+
+export function helpMe() {
+  const promise = import('@module/pages/help-me').then((m) => m.HelpMeModule);
   return promise;
 }

@@ -35,4 +35,8 @@ export class MenuComponent implements OnInit {
   onWeatherForecastClick(): void {
     this.router.navigate([`/weather-forecast-registration`]);
   }
+  
+  onHelpMeClick(): void {
+    this.router.navigate([`/help-me`]);
+  }
 }
