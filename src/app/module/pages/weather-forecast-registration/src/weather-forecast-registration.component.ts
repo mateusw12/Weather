@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
@@ -6,11 +6,15 @@ import {
   MyWeatherForecast,
   WeatherForecast,
 } from '@module/models';
-import { WeatherForecastRepository } from '@module/repositories';
+import {
+  UserRepository,
+  WeatherForecastRepository,
+} from '@module/repositories';
 import { untilDestroyed, untilDestroyedAsync } from '@module/utils/common';
 import { markAllAsTouched } from '@module/utils/forms';
 import { ErrorHandler, ToastService } from '@module/utils/services';
 import { debounceTime } from 'rxjs/operators';
+import { WeatherForecast5DayComponent } from './weather-forecast-5-day-modal/weather-forecast-5-day-modal.component';
 
 interface FormModel {
   city: FormControl<string | null>;
@@ -65,16 +69,24 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
   private icon: string = '';
   private humidity: number = 0;
   private wind: number = 0;
+  private userName: string = '';
+  private lat: number = 0;
+  private lon: number = 0;
+
+  @ViewChild(WeatherForecast5DayComponent, { static: false })
+  private weatherForecastModal!: WeatherForecast5DayComponent;
 
   constructor(
     private router: Router,
     private weatherForecastRepository: WeatherForecastRepository,
+    private userRepository: UserRepository,
     private errorHandler: ErrorHandler,
     private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
     this.formEvents();
+    this.findMe();
   }
 
   async onReturnClick(): Promise<void> {
@@ -97,9 +109,10 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
         lat,
         lon
       );
+      this.lat = lat;
+      this.lon = lon;
       this.setCountryFlag(country);
       this.setWeatherInformation(currentWeatherForecast);
-      console.log(currentWeatherForecast);
       this.loaded = true;
     } catch (error) {
       this.loaded = false;
@@ -122,9 +135,23 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
       );
   }
 
-  onHistoricClick(): void {}
+  onForecast5DayClick(): void {
+    this.weatherForecastModal.onOpen(this.lat, this.lon);
+  }
 
   ngOnDestroy(): void {}
+
+  private async findMe(): Promise<void> {
+    try {
+      const user = await untilDestroyedAsync(
+        this.userRepository.findMe(),
+        this
+      );
+      this.userName = user.userName;
+    } catch (error) {
+      this.handleError(error);
+    }
+  }
 
   private formEvents(): void {
     this.form.controls.city.valueChanges
@@ -149,6 +176,7 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
     model.temperatureMin = this.temperatureMin;
     model.wind = this.wind;
     model.weatherDate = new Date();
+    model.userName = this.userName;
     return model;
   }
 

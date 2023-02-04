@@ -78,7 +78,7 @@
                   <div>
                     <p>
                       Umidade:
-                      {{ weatherHumidity }}
+                      {{ weatherHumidity }} %
                       <i class="bi bi-droplet-fill"></i>
                       <span></span>
                     </p>
@@ -112,8 +112,8 @@
             <button
               ejs-button
               class="align-historic-button"
-              buttonHistoric
-              (click)="onHistoricClick()"
+              buttonForecast5Day
+              (click)="onForecast5DayClick()"
             ></button>
           </div>
           <div>
@@ -124,3 +124,6 @@
     </div>
   </div>
 </div>
+
+
+<app-weather-forecast-5-day-registration></app-weather-forecast-5-day-registration>

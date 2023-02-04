@@ -9,4 +9,5 @@ export class MyWeatherForecast {
   wind: number = 0;
   icon: string = '';
   weatherDate: Date = new Date();
+  userName: string = '';
 }

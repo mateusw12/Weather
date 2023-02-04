@@ -36,6 +36,10 @@
     grid-template-columns: auto auto;
   }
 
+  .align-tab-content {
+    padding-top: 20px;
+  }
+
   .card-content-tab {
     min-height: calc(100vh - 800px);
   }
@@ -55,5 +59,9 @@
 
   .weather-detail {
     padding: 5px;
+  }
+
+  .align-text-content {
+    padding-left: 30px;
   }
 }
