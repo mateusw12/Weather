@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   ButtonAppModule,
+  DatePickerModule,
   NumericTextBoxModule,
   PasswordStrengthBarModule,
   TextBoxModule,
@@ -30,6 +31,7 @@ import { SettingService } from './setting.service';
     ButtonAppModule,
     ReactiveFormsModule,
     TabModule,
+    DatePickerModule,
     PasswordStrengthBarModule,
   ],
   providers: [SettingService],

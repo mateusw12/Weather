@@ -1,13 +1,29 @@
 <div id="content">
   <form [formGroup]="form">
     <div class="row">
-      <div class="col-md-7">
+      <div class="col-md-6">
         <ejs-textbox
           placeholder="E-mail para envio"
           formErrorHandler
           formControlName="email"
         >
         </ejs-textbox>
+      </div>
+      <div class="col-md-3">
+        <ejs-numerictextbox
+          formControlName="phone"
+          formErrorHandler
+          placeholder="Número de Telefone"
+        >
+        </ejs-numerictextbox>
+      </div>
+      <div class="col-md-3">
+        <ejs-datepicker
+          formControlName="lastSendDate"
+          [readonly]="true"
+          placeholder="Data Ultimo Envio"
+        >
+        </ejs-datepicker>
       </div>
     </div>
     <div class="row">
@@ -25,9 +41,23 @@
           </ejs-checkbox>
         </div>
       </div>
+      <div class="align-check-box">
+        <ejs-checkbox label="Enviar SMS" formControlName="sendSms">
+        </ejs-checkbox>
+      </div>
       <div class="col-md-4 align-button">
-        <button ejs-button buttonSave style="margin-right: 10px;" (click)="onSaveClick()"></button>
-        <button ejs-button buttonDelete (click)="onRemoveClick()" [disabled]="disabledRemoveButton"></button>
+        <button
+          ejs-button
+          buttonSave
+          style="margin-right: 10px"
+          (click)="onSaveClick()"
+        ></button>
+        <button
+          ejs-button
+          buttonDelete
+          (click)="onRemoveClick()"
+          [disabled]="disabledRemoveButton"
+        ></button>
       </div>
     </div>
   </form>
