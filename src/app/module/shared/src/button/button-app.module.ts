@@ -7,6 +7,7 @@ import { ButtonConfigDirective } from './button-config.directive';
 import { ButtonCreateUserDirective } from './button-create-user.directive';
 import { ButtonDeleteDirective } from './button-delete.directive';
 import { ButtonFinishDirective } from './button-finish.directive';
+import { ButtonForecast5DayDirective } from './button-forecast-day-5-day.directive';
 import { ButtonHistoricDirective } from './button-historic.directive';
 import { ButtonLoginDirective } from './button-login.directive';
 import { ButtonOkDirective } from './button-ok.directive';
@@ -38,6 +39,7 @@ import { ThrottleClickDirective } from './throttle-click.directive';
     ButtonCreateUserDirective,
     ButtonReturnDirective,
     ButtonHistoricDirective,
+    ButtonForecast5DayDirective,
   ],
   exports: [
     ButtonAddDirective,
@@ -57,6 +59,7 @@ import { ThrottleClickDirective } from './throttle-click.directive';
     ButtonCreateUserDirective,
     ButtonReturnDirective,
     ButtonHistoricDirective,
+    ButtonForecast5DayDirective,
   ],
 })
 export class ButtonAppModule {}
