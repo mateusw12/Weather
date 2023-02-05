@@ -6,6 +6,7 @@ import {
   MyWeatherForecast,
   WeatherForecast,
 } from '@module/models';
+import { JsonConvert } from '@module/utils/serialization';
 import { Observable } from 'rxjs';
 
 const API_KEY = '192be8018e2f9725ef298cec783bbd56';

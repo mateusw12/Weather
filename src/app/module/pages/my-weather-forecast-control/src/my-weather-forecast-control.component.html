@@ -1,0 +1,28 @@
+<div class="container align-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <h3 class="custom-text">Minhas Previsões de Tempo:</h3>
+        <ejs-formgrid [dataSource]="dataSource"
+                      [columns]="columns"
+                      [showAddButton]="false"
+                      [showEditButton]="false"
+                      (command)="onCommand($event)">
+        </ejs-formgrid>
+        <div class="align-footer-items">
+          <div>
+            <button ejs-button buttonReturn (click)="onReturnClick()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #ddetailolumn let-data>
+  <button class="e-lib e-btn e-primary e-control e-icon-btn" 
+          (click)="onDetailClick(data)"
+          title="Detalhar">
+          <span class="e-btn-icon fa fa-download"></span>
+  </button>
+</ng-template>

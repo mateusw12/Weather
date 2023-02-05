@@ -171,15 +171,16 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
     const model = new MyWeatherForecast();
     model.id = 0;
     model.city = this.city;
-    model.countryFlag = this.countryFlagUrl;
+    model.countryFlag = 'teste';
     model.humidity = this.humidity;
-    model.icon = this.icon;
+    model.icon = 'teste';
     model.temperature = this.temperature;
     model.temperatureMax = this.temperatureMax;
     model.temperatureMin = this.temperatureMin;
     model.wind = this.wind;
     model.weatherDate = new Date();
     model.userName = this.userName;
+    console.log(model)
     return model;
   }
 
@@ -191,6 +192,7 @@ export class WeatherForecastRegistrationComponent implements OnInit, OnDestroy {
     this.icon = this.getWeatherIcon(weatherForecast.weather[0].icon);
     this.humidity = weatherForecast.main.humidity;
     this.wind = weatherForecast.wind.speed;
+    console.log('setWeatherInformation', this.city);
   }
 
   private getWeatherIcon(icon: string): string {

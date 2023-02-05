@@ -38,3 +38,10 @@ export function helpMe() {
   const promise = import('@module/pages/help-me').then((m) => m.HelpMeModule);
   return promise;
 }
+
+export function myWatherForecastControl() {
+  const promise = import('@module/pages/my-weather-forecast-control').then(
+    (m) => m.MyWeatherForecastControlModule
+  );
+  return promise;
+}

@@ -41,6 +41,11 @@ export const routes: Routes = [
     loadChildren: pages.helpMe,
   },
   {
+    path: 'my-weather-forecast-control',
+    data: { pageTitle: 'Minhas Previsões de Tempo' },
+    loadChildren: pages.myWatherForecastControl,
+  },
+  {
     path: 'menu',
     component: MenuComponent,
     data: { pageTitle: 'Menu', breadcrumb: 'Menu' },
