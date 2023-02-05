@@ -18,6 +18,7 @@ import {
   MessageService,
   ToastService,
 } from '@module/utils/services';
+import { DetailModalControlComponent } from './detail-modal/detail-modal.component';
 
 interface GridRow {
   id: number;
@@ -36,8 +37,11 @@ export class MyWeatherForecastControlComponent implements OnInit, OnDestroy {
   dataSource: GridRow[] = [];
   columns: SfGridColumnModel[] = [];
 
+  @ViewChild(DetailModalControlComponent, { static: false })
+  private detailModal!: DetailModalControlComponent;
+
   @ViewChild('ddetailolumn', { static: true })
-  private ddetailolumnTemplate!: TemplateRef<unknown>;
+  private detailColumnTemplate!: TemplateRef<unknown>;
 
   private user: string = '';
 
@@ -52,12 +56,15 @@ export class MyWeatherForecastControlComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.columns = this.createColumns();
-    this.getCurrentUser();
+    // this.getCurrentUser();
     this.loadData();
   }
 
   onCommand(event: FormGridCommandEventArgs): void {
     switch (event.command) {
+      case 'Add':
+        this.detailModal.onOpen(1);
+        break;
       case 'Remove':
         this.onCommandRemove(event.rowData as GridRow);
         break;
@@ -66,7 +73,9 @@ export class MyWeatherForecastControlComponent implements OnInit, OnDestroy {
     }
   }
 
-  onDetailClick(gridRow: GridRow): void {}
+  onDetailClick(gridRow: GridRow): void {
+    this.detailModal.onOpen(gridRow.id);
+  }
 
   onReturnClick(): void {
     this.router.navigate([`/menu`]);
@@ -131,7 +140,7 @@ export class MyWeatherForecastControlComponent implements OnInit, OnDestroy {
   private createColumns(): SfGridColumnModel[] {
     return SfGridColumns.build<GridRow>({
       detailColumn: SfGridColumns.text('detailColumn', 'Detalhar Previsão')
-        .template(this.ddetailolumnTemplate)
+        .template(this.detailColumnTemplate)
         .minWidth(75)
         .identity(),
       id: SfGridColumns.text('id', 'Código').minWidth(75).isPrimaryKey(true),

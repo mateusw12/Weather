@@ -1,0 +1,81 @@
+<app-modal #modal modalHeader="Detalhamento Previsão de Tempo" dialogClass="lg">
+  <ng-template #bodyTemplate>
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-2">
+          <ejs-textbox
+            formControlName="id"
+            [readonly]="true"
+            placeholder="Código"
+          >
+          </ejs-textbox>
+        </div>
+        <div class="col-md-6">
+          <ejs-textbox
+            formControlName="city"
+            [readonly]="true"
+            placeholder="Cidade"
+          >
+          </ejs-textbox>
+        </div>
+        <div class="col-md-4">
+          <ejs-datepicker
+            formControlName="weatherDate"
+            [readonly]="true"
+            placeholder="Data Previsão"
+          >
+          </ejs-datepicker>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div style="display: flex; justify-content: space-around">
+            <div>
+              <app-circular-gauge
+                [id]="'circular-container-wind'"
+                [chartValue]="form.controls.wind.value"
+                [height]="300"
+                [width]="200"
+                [title]="'Gráfico de controle de Vento'"
+                [invertRange]="true"
+              >
+              </app-circular-gauge>
+            </div>
+
+            <div>
+              <app-circular-gauge
+                [id]="'circular-container-humidity'"
+                [chartValue]="form.controls.humidity.value"
+                [height]="300"
+                [width]="200"
+                [title]="'Gráfico de controle de Umidade'"
+                [invertRange]="false"
+              >
+              </app-circular-gauge>
+            </div>
+
+            <div>
+              <app-circular-gauge
+                [id]="'circular-container-temperature'"
+                [chartValue]="form.controls.temperature.value"
+                [height]="300"
+                [width]="200"
+                [title]="'Gráfico de controle de temperatura'"
+                [invertRange]="false"
+              >
+              </app-circular-gauge>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12"></div>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #footerTemplate>
+    <button ejs-button buttonCancel (click)="onModalClose()"></button>
+  </ng-template>
+</app-modal>
